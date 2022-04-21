@@ -1,0 +1,28 @@
+{
+  "root": "apps/weather-statistic-e2e",
+  "sourceRoot": "apps/weather-statistic-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/weather-statistic-e2e/cypress.json",
+        "devServerTarget": "weather-statistic:serve:development"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "weather-statistic:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/weather-statistic-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["weather-statistic"]
+}
